@@ -49,11 +49,12 @@ VALUES
 
 Criando informações da tabela Produtos:
 
-INSERT INTO produtos ( created_at, updated_at, nome, descricao, situacao)
+INSERT INTO produtos ( nome, descricao, preco, foto, data_vencimento, created_at, updated_at, sku,  situacao)
 VALUES
-( now(), now(), 'ESCOLAR','Material Escolar', 'A' ),
-( now(), now(), 'CONSTRUÇÃO','Material de Construção', 'A' ),
-( now(), now(), 'ALIMENTAÇÃO','Produtos de Alimentação', 'A' );
+( 'Leite', 'alimento liquido -  origem animal', 3.50,'', '2023-12-30', now(), now(),  123456789,  'A' ),
+( 'Mesa', 'material escritorio -  mesinha para o cha ', 395.50,'', '2023-12-30', now(), now(),  987654321,  'A' ),
+
+( 'Arroz', 'alimento em graos', 5.50,'', '2024-12-30', now(), now(),  123654789,  'A' );
 
 
 
@@ -63,6 +64,11 @@ VALUES
 Para iniciar o servidor: 
 
 	php artisan serve
+	
+	
+	
+	
+	continuar a partir da aula 14 
 	
 
 

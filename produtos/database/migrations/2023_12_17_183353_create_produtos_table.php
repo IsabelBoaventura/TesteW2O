@@ -19,7 +19,7 @@ class CreateProdutosTable extends Migration
             $table->string('descricao', 200)->nullable();
             $table->decimal('preco', 10, 2);
             $table->string('foto', 200);
-            $table->time('data_vencimento')->nullable();          
+            $table->date('data_vencimento')->nullable();          
             $table->timestamps();
             $table->integer('sku')->unique();
             $table->string('situacao', 1);
