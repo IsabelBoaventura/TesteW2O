@@ -27,11 +27,11 @@ Route::get('/', function () {
 
 Route::get('/produtos', [ProdutoController::class, 'index']);
 Route::get('/produtos/create', [ProdutoController::class, 'create']);
-
-
+Route::post('/produtos', [ProdutoController::class, 'store']);
 
 Route::get('/categorias', [CategoriaController::class, 'index']);
 Route::get('/categorias/create', [CategoriaController::class, 'create']);
+Route::post('/categorias', [CategoriaController::class, 'store']);
 
 
 

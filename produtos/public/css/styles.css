@@ -1,141 +1,3 @@
-
-*{
-    font-family: 'Roboto';
-}
-
-
-#navbar img{
-    width: 50px;
-}
-
-
-
-
-body {
-    background-color: #f8f9fa;
-    padding: 20px;
-}
-
-.vaga-card {
-    border: 1px solid #ced4da;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    padding: 20px;
-    background-color: #fff;
-}
-
-.vaga-card img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 15px;
-}
-
-.vaga-card a {
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-/* Estilo para o menu */
-.navbar {
-    margin-bottom: 20px;
-}
-
-.navbar-brand {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.admin-btn {
-    margin-left: auto;
-}
-
-@media (min-width: 576px) {
-    /* Disposição em duas colunas em tablets */
-    .vaga-card {
-        flex: 0 0 48%;
-        max-width: 48%;
-    }
-}
-
-@media (min-width: 768px) {
-    /* Disposição em três colunas em desktops */
-    .vaga-card {
-        flex: 0 0 31%;
-        max-width: 31%;
-    }
-}
-
-/* Estilo para flexbox em colunas */
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-
-/* Estilo temporário do botao */
-
-.btn-primary{
-    border: 2px;
-    /* color: white; */
-    /* text-color: white; */
-}
-
-.btn-primary:hover{
-
-}
-
-
-
-/** navbar*/
-
-#navbar img {
-	width: 40px;
-
-}
-
-#navbar{
-	justify-content: space-between;
-	background-color: #fff;
-	padding: 5px 0;
-}
-
-#navbar a {
-	font-size: 14px;
-	color:black; // #757575;
-}
-
-#navbar a:hover {
-	color: blue; // #F2A340;
-}
-
-
-/** search  container */
-
-#search-container{
-	background-image: url("../img/plateia3.jpg");
-	background-size: cover;
-	background-position: center;
-	height: 400px;
-	padding: 50px;
-	text-align: center;
-
-}
-
-#search-container h1{
-	color: #F2A340;
-	margin-bottom: 30px;
-	font-weight: 900;
-}
-
-#search-container form{
-	width:50%;
-	margin: 0 auto ;
-}
-
-
 /* Gerais */
 
 *{
@@ -192,7 +54,7 @@ header{
 	width: 275px ;
 }
 
-/* * navbar
+/** navbar*/
 
 #navbar img {
 	width: 40px;
@@ -207,12 +69,12 @@ header{
 
 #navbar a {
 	font-size: 14px;
-	color: #696969;// #757575;
+	color:black; // #757575;
 }
 
 #navbar a:hover {
-	color: #98FB98; // #F2A340;
-} */
+	color: blue; //#F2A340;
+}
 
 
 /** search  container */
@@ -221,14 +83,14 @@ header{
 	background-image: url("../img/plateia3.jpg");
 	background-size: cover;
 	background-position: center;
-	height: 400px;
+	//height: 400px;
 	padding: 50px;
 	text-align: center;
 
 }
 
 #search-container h1{
-	color: #F2A340;
+	color: blue ; // #F2A340;
 	margin-bottom: 30px;
 	font-weight: 900;
 }
@@ -243,9 +105,6 @@ header{
 #events-container{
 	padding: 50px; 
 }
-#vagas-container{
-	padding: 50px; 
-}
 
 #events-container h2{
 	margin-bottom:10px;
@@ -254,7 +113,7 @@ header{
 
 
 #events-container .subtitle{
-	color: #757575;
+	color: black ; // #757575;
 	margin-bottom: 30px;
 }
 
@@ -294,22 +153,22 @@ header{
 
 .card-participants{
 	font-size: 14px;
-	color: #757575;
+	color: black; //#757575;
 }
 
 
 /** Pagina de Criacao do Evento  */
-#vaga-create-container{
+#event-create-container{
 	padding: 30px ;
 }
 
-#vaga-create-container label{
+#event-create-container label{
 	font-weight: bold ; 
 }
 
-#vaga-create-container input, 
-#vaga-create-container select, 
-#vaga-create-container textarea{
+#event-create-container input, 
+#event-create-container select, 
+#event-create-container textarea{
 	font-size: 12px ;
 }
 
@@ -342,7 +201,7 @@ header{
 
 #info-container ion-icon{
 	font-size: 20px;
-	color: #F2A340;
+	color: blue ; // #F2A340;
 	margin-right: 5px;
 }
 
@@ -402,5 +261,6 @@ footer{
 footer p{
 	margin-bottom: 0;
 }
+
 
 

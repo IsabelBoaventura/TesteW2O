@@ -21,12 +21,8 @@ class CreateProdutosTable extends Migration
             $table->string('foto', 200);
             $table->date('data_vencimento')->nullable();          
             $table->timestamps();
-            $table->integer('sku')->unique();
-            $table->string('situacao', 1);
-            
-
+            $table->string('sku', 20)->unique();
            
-
 
         });
     }

@@ -39,23 +39,33 @@ Haverão duas tabelas principais: Produtos e Categorias;
 
 Criando informações da tabela Categorias:
 
-INSERT INTO categorias ( created_at, updated_at, nome, descricao, situacao)
+INSERT INTO categorias ( created_at, updated_at, nome, descricao)
 VALUES
-( now(), now(), 'ESCOLAR','Material Escolar', 'A' ),
-( now(), now(), 'CONSTRUÇÃO','Material de Construção', 'A' ),
-( now(), now(), 'ALIMENTAÇÃO','Produtos de Alimentação', 'A' );
+( now(), now(), 'ESCOLAR','Material Escolar' ),
+( now(), now(), 'CONSTRUÇÃO','Material de Construção' ),
+( now(), now(), 'ALIMENTAÇÃO','Produtos de Alimentação' );
 
 
 
 Criando informações da tabela Produtos:
 
-INSERT INTO produtos ( nome, descricao, preco, foto, data_vencimento, created_at, updated_at, sku,  situacao)
+INSERT INTO produtos ( nome, descricao, preco, foto, data_vencimento, created_at, updated_at, sku)
 VALUES
-( 'Leite', 'alimento liquido -  origem animal', 3.50,'', '2023-12-30', now(), now(),  123456789,  'A' ),
-( 'Mesa', 'material escritorio -  mesinha para o cha ', 395.50,'', '2023-12-30', now(), now(),  987654321,  'A' ),
+( 'Leite', 'alimento liquido -  origem animal', 3.50,'', '2023-12-30', now(), now(),  'LEV-JN-SL-36-GN' ),
+( 'Mesa', 'material escritorio -  mesinha para o cha ', 395.50,'', '2023-12-30', now(), now(), 'CELIPXCE64'  ),
 
-( 'Arroz', 'alimento em graos', 5.50,'', '2024-12-30', now(), now(),  123654789,  'A' );
+( 'Arroz', 'alimento em graos', 5.50,'', '2024-12-30', now(), now(),  123654789 );
 
+
+## Informações importantes
+
+SKU é um código único, recomendável ter de 4 a 8 caracteres e pode ter letras e números.
+Escolhi a quantidade máxima de 20 caracteres.
+Deve ser escrito em letras Maiusculas, e evitar as letras 'l' e 'o' e os números 1 e 0 ;
+
+
+Validação do tipo da imagem:
+	https://www.youtube.com/watch?v=MEMnLeqIi2c
 
 
 
