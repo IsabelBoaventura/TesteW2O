@@ -13,6 +13,38 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+//Importar os controllers
+use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\ProdutoController;
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+
+
+Route::get('/produtos', [ProdutoController::class, 'index']);
+Route::get('/produtos/create', [ProdutoController::class, 'create']);
+
+
+
+Route::get('/categorias', [CategoriaController::class, 'index']);
+Route::get('/categorias/create', [CategoriaController::class, 'create']);
+
+
+
+
+
+/**Movimentação do produto */
+Route::get('/entradas', function () {
+    return view('/movimentacao/entrada');
+});
+
+
+Route::get('/saidas', function () {
+    return view('/movimentacao/saida');
+});
+
+
