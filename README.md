@@ -22,13 +22,6 @@ Criando o banco de dados: CREATE SCHEMA `w2o` ;
 
 Criando as tabelas via migration.
 
-Erro na categoria:
-
-	$table->foreign('categoria_id')->unsigned()->nullable()->references('id')->on('categorias')
-            ->onDelete('set null');
-			
-	$table->foreign('categoria_id')->unsigned()->nullable()->references('id')->on('categorias');         
-
 
 
 ## Pastas
@@ -82,7 +75,7 @@ Para iniciar o servidor:
 	
 	
 	
-	continuar a partir da aula 14 
+	
 	
 
 
