@@ -57,15 +57,19 @@ VALUES
 ( 'Arroz', 'alimento em graos', 5.50,'', '2024-12-30', now(), now(),  123654789 );
 
 
+
+Criando informações da tabela Movimentação:
+
+INSERT INTO movimentacao ( produto_id, data_movimento, tipo_movimento, quantidade, estoque_atual)
+VALUES
+( 1, '2023-10-10', 'E', 10, 10 );
+
+
 ## Informações importantes
 
 SKU é um código único, recomendável ter de 4 a 8 caracteres e pode ter letras e números.
 Escolhi a quantidade máxima de 20 caracteres.
 Deve ser escrito em letras Maiusculas, e evitar as letras 'l' e 'o' e os números 1 e 0 ;
-
-
-Validação do tipo da imagem:
-	https://www.youtube.com/watch?v=MEMnLeqIi2c
 
 
 

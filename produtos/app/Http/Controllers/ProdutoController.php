@@ -12,8 +12,17 @@ class ProdutoController extends Controller
     //metodo principal
     public function index(){
 
-        //buscando por todos os eventos do banco
-        $produtos = Produto::all();
+       
+        $search = request('search');
+        if( $search ){
+            $produtos = Produto::where([
+                ['nome', 'like', '%'.$search.'%']
+            ])->get();
+        }else{
+            //buscando por todos os eventos do banco
+            $produtos = Produto::all();
+
+        }
 
         return view('produtos', ['produtos' => $produtos, 'search' => '' ]);
   
@@ -32,8 +41,15 @@ class ProdutoController extends Controller
 
     //Metodo para trazer as informações do Form
     public  function store ( Request $request){
+
         $produto = new Produto;
         //no singular, pois é a criação de um produto por vez 
+
+
+       
+
+
+      
 
         $produto->nome = $request->nome;
         $produto->descricao = $request->descricao;
@@ -69,7 +85,7 @@ class ProdutoController extends Controller
             
             $extension = $requestImage->extension();
             
-            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now"). '.'.$extension ) ;
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")). '.'.$extension ;
 
             $requestImage->move(public_path('img/produtos'), $imageName);
 
@@ -89,6 +105,16 @@ class ProdutoController extends Controller
        //redirecionar o usuario para a pagina principal
        return redirect('/')->with('msg', 'Produto criado com sucesso!');
 
+
+    }
+
+    public function show( $id ){
+        $produto = Produto::findOrFail($id);
+
+       // $cat = Categoria::findOrFail($produto->categoria);
+       //, 'categoria' => $cat
+
+        return view('produtos.show', ['produto' => $produto]);
 
     }
 }

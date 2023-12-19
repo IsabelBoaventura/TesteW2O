@@ -6,7 +6,32 @@
 
     {{-- --}}
 
-    <h1>teste</h1>
+    <div id="cards-container" class="row row-clos-1 row-cols-md-3 mb-3 text-center">
+       
+            {{-- @foreach( $movimentacao  as $estoque  )
+            @endforeach  --}}
+
+
+
+
+
+                <div>Produto: </div>
+                <div>Data: </div>
+                <div>Movimento: </div>
+                <div>Quantidade: </div>
+                <div>Estoque Final: </div>
+
+
+               
+
+
+              
+                
+           
+
+            
+    </div>
+
 	
 @endsection
 

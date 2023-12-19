@@ -11,10 +11,19 @@ class CategoriaController extends Controller
     //metodo principal
     public function index(){
 
-        //buscando por todos os eventos do banco
-        $categorias = Categoria::all();
+        
+        $search = request('search');
+        if( $search ){
+            $categorias = Categoria::where([
+                ['nome', 'like', '%'.$search.'%']
+            ])->get();
+        }else{
+            //buscando por todos os eventos do banco
+             $categorias = Categoria::all();
 
-        return view('categorias', ['categorias' => $categorias,  'search'=> ''] );
+        }
+
+        return view('categorias', ['categorias' => $categorias,  'search'=> $search] );
     }
 
     //metodo de criacao
@@ -36,6 +45,15 @@ class CategoriaController extends Controller
        return redirect('/')->with('msg', 'Categoria criada com sucesso!');
 
 
+
+    }
+
+
+    //metodo para mostrar determinada categoria 
+    public function show( $id ){
+        $categoria  = Categoria::findOrFail($id);
+
+        return view('categorias.show', ['categoria' => $categoria ]);
 
     }
 }

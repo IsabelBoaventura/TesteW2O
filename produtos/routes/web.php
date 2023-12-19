@@ -17,10 +17,10 @@ use Illuminate\Support\Facades\Route;
 //Importar os controllers
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\MovimentacaoController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',   [MovimentacaoController::class, 'index']);
+
 
 
 
@@ -28,9 +28,11 @@ Route::get('/', function () {
 Route::get('/produtos', [ProdutoController::class, 'index']);
 Route::get('/produtos/create', [ProdutoController::class, 'create']);
 Route::post('/produtos', [ProdutoController::class, 'store']);
+Route::get('/produtos/{id}', [ProdutoController::class, 'show']);
 
 Route::get('/categorias', [CategoriaController::class, 'index']);
 Route::get('/categorias/create', [CategoriaController::class, 'create']);
+Route::get('/categorias/{id}', [CategoriaController::class, 'show']);
 Route::post('/categorias', [CategoriaController::class, 'store']);
 
 

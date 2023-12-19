@@ -4,23 +4,17 @@
 	
 @section('content')
 
-    
-
-    <h1>Tela dos produtos </h1>
 
     <div id="search-container" class="col-md-12">
         <h1>Busque um produto </h1>
-        <form action="/" method="GET">
+        <form action="/produtos" method="GET">
             <input type="text" id="search" name="search" class="form-control" placeholder="Procurar">
         </form>
     </div>
 
-    <div id="produtos-container" class="col-md-12">
+    <div id="listas-container" class="col-md-12">
         @if( $search)
             <h2>Buscando por: {{ $search }}</h2> 
-        @else
-            <h2>Produtos encontrados: </h2>
-            <p class="subtitle">Alguns produtos de destaque</p>
         @endif
       
         <div id="cards-container" class="row row-clos-1 row-cols-md-3 mb-3 text-center">
@@ -40,8 +34,9 @@
                         
                         <h5 class="card-title">{{ $produto->nome }}</h5>
                         <p class="card-participants"> {{  $produto->descricao }} </p>
+                        <p class="card-participants"> R$ {{  $produto->preco }} </p>
 
-                        <p class="card-date">
+                        <p class="card-participants">
                         @if( $produto->data_vencimento  != '' )
                             {{ date('d/m/Y', strtotime( $produto->data_vencimento ) )}}
                         @else
@@ -51,6 +46,7 @@
                         </p>
 
                         <p class="card-participants"> {{  $produto->sku }} </p>
+                        
                         <a href="/produtos/{{ $produto->id}}" class="btn btn-primary">Saber mais</a>
 
                       
@@ -73,10 +69,7 @@
         </div>
     </div> 
 
-    <div class="espaco">
-        
-    </div>
-
+  
 
 
 
