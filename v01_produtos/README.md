@@ -1,11 +1,7 @@
 # Gerenciamento de estoque - W2O
 
-* v01_produtos: foi a versão entregue para este teste.
-* Estoque: é a versão atual que estou trabalhando neste momento.
 
-Caso aconteça algum problema, que não de apenas para recomeçar uma aula, irei recomeçar todo o projeto novamente , até sair da forma que preciso.
-
-
+Teste WEB - PHP 
 
 ## Arquitetura
 
@@ -14,34 +10,10 @@ O que estou usando para o sistema funcionar
 * PHP (7.4.19 );
 * Composer (2.3.10);
 * Laravel (8.6.12);
-* MySQL (8.0.33);
 * Icon:    
 
 	<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 	
-	
-## Documentação
-
-Onde encontrar as informações de Laravel:
-
-	https://laravel.com/docs/10.x
-	
-* laracasts:
-
-	https://laracasts.com/
-	
-* notícias / novidades:
-
-	https://laravel-news.com/
-	
-
-	
-
-Na tela pode se mostrar qual a versão do Laravel e do php se esta usando.
-
-<code>
-	  Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
-</code>	
 	
 ## Banco de Dados
 
