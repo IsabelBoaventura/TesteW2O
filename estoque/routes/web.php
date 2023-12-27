@@ -13,14 +13,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $num = [10,20,30,40,50];
-    return view('welcome' , ['numeros' => $num ] );
-});
+
+/**Importando os controlleres  */
+use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\MovimentacaoController;
+
+/**Rota principal */
+Route::get('/', [MovimentacaoController::class, 'index']);
 
 
-Route::get('/mov', function () {
 
-   
-    return view('movimentacao');
-});
+/**Rota das Categorias  */
+Route::get('/categorias', [CategoriaController::class, 'index'] );
+Route::get('/categorias/create',  [CategoriaController::class, 'create'] );
+
+
+/**Rota dos Produtos */
+Route::get('/produtos', [ProdutoController::class, 'index'] );
+Route::get('/produtos/criacao',  [CategoriaController::class, 'create'] );
+
+
+
+
+// Route::get('/mov',  [MovimentacaoController::class, 'index']);
+// Route::get('/mov/criar',  [CategoriaController::class, 'create'] );

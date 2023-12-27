@@ -34,6 +34,26 @@ Onde encontrar as informações de Laravel:
 
 	https://laravel-news.com/
 	
+* migrations:
+
+	https://laravel.com/docs/10.x/migrations
+	
+* tipos de colunas das migrations:
+
+	https://laravel.com/docs/10.x/migrations#available-column-types
+	
+* modificadores das colunas da migration:
+
+	https://laravel.com/docs/10.x/migrations#column-modifiers
+	
+* indices para migrations:
+
+	https://laravel.com/docs/10.x/migrations#indexes
+	
+
+	
+
+	
 
 	
 
@@ -41,7 +61,85 @@ Na tela pode se mostrar qual a versão do Laravel e do php se esta usando.
 
 <code>
 	  Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
-</code>	
+</code>
+
+
+## Estrutura da Blade
+
+Todas as blade terão a mesma estrutura, apenas repetir:
+
+<code>
+	@extends('layouts.main')
+	
+	@section('title', 'titulo desta blade') 
+	
+	@section('content')
+	
+	@endsection
+</code>
+
+
+
+
+
+## Controllers
+
+Criando os controles através do artisan.
+Abrindo um novo navegador, indo para o mesmo diretório e digite o comando:
+
+	php artisan make:controller CategoriaController
+	
+	php artisan make:controller ProdutoController
+	
+	php artisan make:controller MovimentacaoController
+	
+	
+## Migrate
+
+No nosso exemplo usaremos o banco já existente, portanto algumas migrations não será refeito. Como produto, categoria. Mas a migration de 'Movimentacoes' será refeita. 
+
+Para verificar a situação das migrations:
+
+	php artisan migrate:status
+	
+Para refazer as tabelsa no banco (sem salvar as informações)
+
+	php artisan migrate:fresh
+	
+Para adicionar um novo campo, a uma tabela já existene:
+
+	php artisan make:migration add_nome-do-campo_to_nome-da-tabela_table
+	
+
+
+(Como eliminar este campo, que foi criado agora)
+
+
+	
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
 	
 ## Banco de Dados
 
