@@ -50,8 +50,29 @@ Onde encontrar as informações de Laravel:
 
 	https://laravel.com/docs/10.x/migrations#indexes
 	
+* migrations rollback:
+
+	https://laravel.com/docs/10.x/migrations#rolling-back-migrations
+	
+## Entidade
+
+Denominação dada geralmente a classe de objetos que se quer declarar ao se usar em geral. Por exemplo, se queremos trabalhar com produtos, a entidade será "produto" esta mesma entidade poderá ser apresentado no plural, singular,  maiusculo, minusculo e de outras formas como for conveniente para o momento. 
+
+Para fins de melhor compreender, todos os exemplos apresentado usaram a entidade <b style="color:blue; size:14px" >Evento</b>. 
 
 	
+## Convenções de nomes
+
+Os nomes das entidades devem seguir determinados padrões para ser reconhecido pelo laravel. Por exemplo:
+
+* Tabelas: serão escritas no plural e em minusculo (eventos);
+* Model: primeira letra em Maiusculas, as restantes em minusculo e no singular (Evento);
+* Controller: Primeira letra em maiusculo, restante do nome em minusculo, no singular, seguido pela palavra "Controller", sem espaço entre a entidade e a palavra "Controller" (EventoController). 
+
+Cuidado com as palavras que o plural em português é diferente do plural em ingles. No idioma inglês para representar o plural, acrescenta um 's' no final de cada palavra. Em português, acrescentar o 's' pode não fazer sentido. Exemplo: entidade movimentação,  no plural ficaria movimentações, entretanto o laravel irá formar "movimentacaos".  
+O que não será encontrado pelo banco de dados. 
+
+
 
 	
 
@@ -93,6 +114,14 @@ Abrindo um novo navegador, indo para o mesmo diretório e digite o comando:
 	
 	php artisan make:controller MovimentacaoController
 	
+## Banco de Dados
+
+Criando o banco de dados: CREATE SCHEMA `w2o` ;
+
+Criando as tabelas via migration.
+
+
+	
 	
 ## Migrate
 
@@ -112,41 +141,55 @@ Para adicionar um novo campo, a uma tabela já existene:
 	
 
 
-(Como eliminar este campo, que foi criado agora)
-
-
+Como eliminar este campo, que foi criado agora
 	
-
+	php artisan migrate:rollback
 	
+Apenas ver o que o rollback varia sem executar:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	php artisan migrate:rollback --pretend
 	
+Reverter(desfazer) todas as migrations já feitas:
+
+	php artisan migrate:reset
 	
-## Banco de Dados
+Desfazer e refazer toda a estrutura do banco de dados:
+	<b style="color:red;size:16px">Cuidado</b>
 
-Criando o banco de dados: CREATE SCHEMA `w2o` ;
+	php artisan migrate:refresh
+	
+	<b style="color:red;size:16px">Cuidado</b>
+	
+Refazendo apenas as ultimas 5 migrations:
+
+	php artisan migrate:refresh --step=5
+	
+## Receber e enviar ao Banco
+
+As conexões do nosso aplicativo com o banco de dados será realizada através da Model, será nestes arquivos que faremos as importações e exportações para o banco. 
+
+## Model
+
+As model são realizadas através do artisan
+
+	php artisan make:model Event
+	
+Quase não se modificará a Model,  mas suas actions são essenciais para o Controller poder receber e enviar as informações do banco e para o banco. 
 
 
-Criando as tabelas via migration.
+
+## Controller com a Model
+
+Com a Model criada, temos de informar ao Controller que ele usará a Model. 
+Assim dentro do controller, chamamos a model:
+
+	use App\Models\Evento
+	
+E dentro da action index chamamos a função principal desta action. 
+
+	$events = Evento::all();
+
+
 
 
 

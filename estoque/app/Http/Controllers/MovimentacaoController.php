@@ -14,15 +14,16 @@ class MovimentacaoController extends Controller
     public function index(){
 
         //buscando por todos os eventos do banco
-        //$movimentacao  = Movimentacao::all();
+        //
+        $movimentacao  = Movimentacao::all();
 
         // echo '<pre>';
         // print_r($movimentacao );
         // echo '</pre>';
         // exit;
-        // , ['movimentacao'  =>  $movimentacao ] 
+        // 
 
-        return view('welcome');
+        return view('welcome' , ['movimentacao'  =>  $movimentacao ] );
 
 
 

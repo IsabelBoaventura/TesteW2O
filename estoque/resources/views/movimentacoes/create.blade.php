@@ -7,6 +7,7 @@
 
     <div id="lista-create-container" class="col-md-6 offset-md-3">
         <h1>Crie um novo Movimento do Produto </h1>
+        <b style="color:red;size:16px">Cuidado</b>
         <form action="/" method="POST" >
             @csrf
            

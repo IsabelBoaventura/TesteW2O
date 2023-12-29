@@ -6,6 +6,7 @@
     <h1>Tela de Criação de Novas Categorias </h1>
 	<div id="categoria-create-container" class="col-md-6 offset-md-3">
         <h1>Crie uma categoria</h1>
+        <b style="color:red;size:16px">Cuidado</b>
         <form action="/categorias" method="POST">
             @csrf
             <div class="form-group">
