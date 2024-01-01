@@ -204,30 +204,32 @@ Haverão duas tabelas principais: Produtos e Categorias;
 
 Criando informações da tabela Categorias:
 
-INSERT INTO categorias ( created_at, updated_at, nome, descricao)
-VALUES
-( now(), now(), 'ESCOLAR','Material Escolar' ),
-( now(), now(), 'CONSTRUÇÃO','Material de Construção' ),
-( now(), now(), 'ALIMENTAÇÃO','Produtos de Alimentação' );
+	INSERT INTO categorias 
+	( created_at, updated_at, nome, descricao)
+	VALUES
+	( now(), now(), 'ESCOLAR','Material Escolar' ),
+	( now(), now(), 'CONSTRUÇÃO','Material de Construção' ),
+	( now(), now(), 'ALIMENTAÇÃO','Produtos de Alimentação' );
 
 
 
 Criando informações da tabela Produtos:
 
-INSERT INTO produtos ( nome, descricao, preco, foto, data_vencimento, created_at, updated_at, sku)
-VALUES
-( 'Leite', 'alimento liquido -  origem animal', 3.50,'', '2023-12-30', now(), now(),  'LEV-JN-SL-36-GN' ),
-( 'Mesa', 'material escritorio -  mesinha para o cha ', 395.50,'', '2023-12-30', now(), now(), 'CELIPXCE64'  ),
-
-( 'Arroz', 'alimento em graos', 5.50,'', '2024-12-30', now(), now(),  123654789 );
+	INSERT INTO produtos 
+	( nome, descricao, preco, foto, data_vencimento, created_at, updated_at, sku)
+	VALUES
+	( 'Leite', 'alimento liquido -  origem animal', 3.50,'', '2023-12-30', now(), now(),  'LEV-JN-SL-36-GN' ),
+	( 'Mesa', 'material escritorio -  mesinha para o cha ', 395.50,'', '2023-12-30', now(), now(), 'CELIPXCE64'  ),
+	( 'Arroz', 'alimento em graos', 5.50,'', '2024-12-30', now(), now(),  123654789 );
 
 
 
 Criando informações da tabela Movimentação:
 
-INSERT INTO movimentacao ( produto_id, data_movimento, tipo_movimento, quantidade, estoque_atual)
-VALUES
-( 1, '2023-10-10', 'E', 10, 10 );
+	INSERT INTO movimentacao 
+	( produto_id, data_movimento, tipo_movimento, quantidade, estoque_atual)
+	VALUES
+	( 1, '2023-10-10', 'E', 10, 10 );
 
 
 ## Informações importantes
