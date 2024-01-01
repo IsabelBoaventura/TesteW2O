@@ -23,7 +23,7 @@ class MovimentacaoController extends Controller
         // exit;
         // 
 
-        return view('welcome' , ['movimentacao'  =>  $movimentacao ] );
+        return view('welcome' , ['movimentacao'  =>  $movimentacao, 'search' => ''] );
 
 
 
