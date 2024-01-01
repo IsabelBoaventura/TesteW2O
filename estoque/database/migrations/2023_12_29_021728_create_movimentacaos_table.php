@@ -16,6 +16,13 @@ class CreateMovimentacaosTable extends Migration
         Schema::create('movimentacaos', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->integer('produto_id');
+            $table->date('data_movimento');
+            $table->string('tipo_movimento', 10);           
+            $table->double('quantidade', 20, 2);
+            $table->double('estoque_atual', 20, 2);
+
+
         });
     }
 

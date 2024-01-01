@@ -54,6 +54,12 @@ Onde encontrar as informações de Laravel:
 
 	https://laravel.com/docs/10.x/migrations#rolling-back-migrations
 	
+* migrations campos tabela:
+
+	https://laravel.com/docs/10.x/migrations#available-column-types
+	
+	
+	
 ## Entidade
 
 Denominação dada geralmente a classe de objetos que se quer declarar ao se usar em geral. Por exemplo, se queremos trabalhar com produtos, a entidade será "produto" esta mesma entidade poderá ser apresentado no plural, singular,  maiusculo, minusculo e de outras formas como for conveniente para o momento. 
@@ -163,6 +169,8 @@ Desfazer e refazer toda a estrutura do banco de dados:
 Refazendo apenas as ultimas 5 migrations:
 
 	php artisan migrate:refresh --step=5
+	
+Alguns tipos de bancos que são aceitos nas migrations:  id, timestamp, text, sting, boolean, integer, ...
 	
 ## Receber e enviar ao Banco
 
