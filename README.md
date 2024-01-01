@@ -86,8 +86,7 @@ O que não será encontrado pelo banco de dados.
 
 Na tela pode se mostrar qual a versão do Laravel e do php se esta usando.
 
-<code>
-	  Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
+<code>Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
 </code>
 
 
@@ -95,13 +94,9 @@ Na tela pode se mostrar qual a versão do Laravel e do php se esta usando.
 
 Todas as blade terão a mesma estrutura, apenas repetir:
 
-<code>
-	@extends('layouts.main')
-	
+<code>@extends('layouts.main')
 	@section('title', 'titulo desta blade') 
-	
 	@section('content')
-	
 	@endsection
 </code>
 
