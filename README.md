@@ -275,12 +275,19 @@ Chamamos a model do banco e passamos cada um dos campos do formulário para os c
 
 Chamamos o método que salva as informações no banco. 
 
-E redirecionamos para a página principal, ou a que desejarmos.
+E redirecionamos para a página principal, ou a página que desejarmos.
 
 
-``` 
-	echo 'Hello Word!';
-```
+
+	~~~php
+    public function store ( Request $request){
+		$event = new Event;
+		$event->titulo = $request->titulo
+		$event->descricao = $request->descricao
+		$event->save();
+		return redirect('/');
+	}
+    ~~~
 
 
 	
