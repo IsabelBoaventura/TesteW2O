@@ -34,8 +34,8 @@
                         <li class="nav-item"><a href="/categorias" class="nav-link">Categoria</a></li>
                         <li class="nav-item"><a href="/categorias/create" class="nav-link">Nova Categoria</a></li>
                         <li class="nav-item"><a href="/produtos" class="nav-link">Produto</a></li>
-                        <li class="nav-item"><a href="/produtos/create" class="nav-link">Novo Produto</a></li>
-                        <li class="nav-item"><a href="/movimentacao/create" class="nav-link">Movimentar Estoque</a></li>
+                        <li class="nav-item"><a href="/produtos/criacao" class="nav-link">Novo Produto</a></li>
+                        <li class="nav-item"><a href="/mov/criar" class="nav-link">Movimentar Estoque</a></li>
                         <!-- <li class="nav-item"><a href="/entradas" class="nav-link"> Entrada</a></li>
                         <li class="nav-item"><a href="/saidas" class="nav-link"> Saída </a></li> -->
                     </ul>

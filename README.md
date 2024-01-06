@@ -247,6 +247,43 @@ Para iniciar o servidor:
 	php artisan serve
 	
 	
+### Adicionando registros 
+
+No laravel para adicionar registros no banco de dados será necessários alguns processos:
+
+* criação do formulário para o usuário digitar os dados.
+
+A criação do o form será realizada na View ( create.blade.php );
+
+* Criação da Rota (web.php);
+
+Quando é criada uma nova view, deve se informar qual a rota que devemos chamar ela, qual o tipo de ação que esta rota terá e para qual função dentro do controller ela deve ser dirigida. 
+
+ 
+
+	Route::post('events', [EventController::class, 'store')
+	
+O método **store** é padrão do laravel ( não é obrigatório, mas é o recomendável) será ele que será responsável pelo envio dos dados para o banco de dados. 
+
+* Criação da Action dentro do Controller 
+
+Dentro do controller, devemos criar a action que irá receber as informações do formulário e encaminhar para o banco. 
+
+Para capturar as informações do formulário  usaremos a variável **$request**.
+
+Chamamos a model do banco e passamos cada um dos campos do formulário para os campos do banco.
+
+Chamamos o método que salva as informações no banco. 
+
+E redirecionamos para a página principal, ou a que desejarmos.
+
+
+``` 
+	echo 'Hello Word!';
+```
+
+
+	
 	
 	
 	

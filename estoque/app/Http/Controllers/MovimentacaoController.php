@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 //
 use App\Models\Movimentacao;
+use App\Models\Produto;
 
 class MovimentacaoController extends Controller
 {
@@ -17,25 +18,21 @@ class MovimentacaoController extends Controller
         //
         $movimentacao  = Movimentacao::all();
 
-        // echo '<pre>';
-        // print_r($movimentacao );
-        // echo '</pre>';
-        // exit;
-        // 
-
-        return view('welcome' , ['movimentacao'  =>  $movimentacao, 'search' => ''] );
-
-
-
-         
+    
+        return view('welcome' , ['movimentacao'  =>  $movimentacao, 'search' => ''] );  
         
     }
 
 
 
-     //metodo de criacao
-     public function create(){
-        return view('movimentacoes.create');
+    //metodo de criacao
+    public function create(){
+        //como aqui precisa do produto , nao pode ser apenas a movimentacao que ira na view
+
+        $produtos  = Produto::all();
+
+
+        return view('movimentacoes.create'  , ['produtos' => $produtos]);
     }
 
     //metodo para envio para o banco 

@@ -8,7 +8,7 @@
     <div id="lista-create-container" class="col-md-6 offset-md-3">
         <h1>Crie um novo Movimento do Produto </h1>
         <b style="color:red;size:16px">Cuidado</b>
-        <form action="/" method="POST" >
+        <form action="/mov" method="POST" >
             @csrf
            
 
@@ -59,7 +59,7 @@
                 <input type="text" name="estoque" id="estoque" class="form-control">
             </div> -->
 
-            <input type="submit" value="Criar Produto" class="btn btn-primary">
+            <input type="submit" value="Criar Movimentação" class="btn btn-primary">
             
 
 

@@ -31,10 +31,12 @@ Route::get('/categorias/create',  [CategoriaController::class, 'create'] );
 
 /**Rota dos Produtos */
 Route::get('/produtos', [ProdutoController::class, 'index'] );
-Route::get('/produtos/criacao',  [CategoriaController::class, 'create'] );
+Route::get('/produtos/criacao',  [ProdutoController::class, 'create'] );
 
 
 
 
-// Route::get('/mov',  [MovimentacaoController::class, 'index']);
-// Route::get('/mov/criar',  [CategoriaController::class, 'create'] );
+//
+ Route::get('/mov',  [MovimentacaoController::class, 'index']);
+// 
+Route::get('/mov/criar',  [MovimentacaoController::class, 'create'] );

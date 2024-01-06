@@ -99,10 +99,10 @@
                         <td>
                       
                        
-                            <ion-icon name="trash"></ion-icon>
+                        <a href="/mov/del/{{  $mov->id}}" > <ion-icon name="trash"></ion-icon></a> 
 
                            
-                            <a href="/movimentacoes/{{  $mov->id}}" > <ion-icon name="create"></ion-icon></a> 
+                            <a href="/mov/show/{{  $mov->id}}" > <ion-icon name="create"></ion-icon></a> 
                         </td>
                     </tr>
                 @endforeach          
