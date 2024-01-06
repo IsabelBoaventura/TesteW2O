@@ -288,6 +288,17 @@ E redirecionamos para a página principal, ou a página que desejarmos.
 		return redirect('/');
 	}
     ~~~
+	
+	
+	
+	teste phytion 
+	
+	
+	
+	~~~python
+    s = "Sintaxe do Pythong"
+    print s
+    ~~~
 
 
 	
