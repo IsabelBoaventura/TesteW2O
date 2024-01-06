@@ -277,9 +277,7 @@ Chamamos o método que salva as informações no banco.
 
 E redirecionamos para a página principal, ou a página que desejarmos.
 
-
-
-	~~~php
+	
     public function store ( Request $request){
 		$event = new Event;
 		$event->titulo = $request->titulo
@@ -287,7 +285,7 @@ E redirecionamos para a página principal, ou a página que desejarmos.
 		$event->save();
 		return redirect('/');
 	}
-    ~~~
+    
 	
 	
 	
