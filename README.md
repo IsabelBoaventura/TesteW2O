@@ -302,7 +302,10 @@ E redirecionamos para a página principal, ou a página que desejarmos.
 
 
 	
-	
+	```python
+    s = "Sintaxe do Pythong"
+    print s
+    ```
 	
 	
 	
