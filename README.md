@@ -72,17 +72,14 @@ Para fins de melhor compreender, todos os exemplos apresentado usaram a entidade
 Os nomes das entidades devem seguir determinados padrões para ser reconhecido pelo laravel. Por exemplo:
 
 * Tabelas: serão escritas no plural e em minusculo (eventos);
+
 * Model: primeira letra em Maiusculas, as restantes em minusculo e no singular (Evento);
+
 * Controller: Primeira letra em maiusculo, restante do nome em minusculo, no singular, seguido pela palavra "Controller", sem espaço entre a entidade e a palavra "Controller" (EventoController). 
 
 Cuidado com as palavras que o plural em português é diferente do plural em ingles. No idioma inglês para representar o plural, acrescenta um 's' no final de cada palavra. Em português, acrescentar o 's' pode não fazer sentido. Exemplo: entidade movimentação,  no plural ficaria movimentações, entretanto o laravel irá formar "movimentacaos".  
 O que não será encontrado pelo banco de dados. 
 
-
-
-	
-
-	
 
 Na tela pode se mostrar qual a versão do Laravel e do php se esta usando.
 
@@ -101,12 +98,10 @@ Todas as blade terão a mesma estrutura, apenas repetir:
 </code>
 
 
-
-
-
 ## Controllers
 
 Criando os controles através do artisan.
+
 Abrindo um novo navegador, indo para o mesmo diretório e digite o comando:
 
 	php artisan make:controller CategoriaController
@@ -184,16 +179,18 @@ Quase não se modificará a Model,  mas suas actions são essenciais para o Cont
 ## Controller com a Model
 
 Com a Model criada, temos de informar ao Controller que ele usará a Model. 
+
 Assim dentro do controller, chamamos a model:
 
+~~~php
 	use App\Models\Evento
+~~~
 	
 E dentro da action index chamamos a função principal desta action. 
 
+~~~php
 	$events = Evento::all();
-
-
-
+~~~
 
 
 ## Pastas
@@ -224,9 +221,9 @@ Criando informações da tabela Produtos:
 
 
 
-Criando informações da tabela Movimentação:
+Criando informações da tabela Movimentação( movimentacaos):
 
-	INSERT INTO movimentacao 
+	INSERT INTO movimentacaos 
 	( produto_id, data_movimento, tipo_movimento, quantidade, estoque_atual)
 	VALUES
 	( 1, '2023-10-10', 'E', 10, 10 );
@@ -259,9 +256,9 @@ A criação do o form será realizada na View ( create.blade.php );
 
 Quando é criada uma nova view, deve se informar qual a rota que devemos chamar ela, qual o tipo de ação que esta rota terá e para qual função dentro do controller ela deve ser dirigida. 
 
- 
-
+~~~php
 	Route::post('events', [EventController::class, 'store')
+~~~
 	
 O método **store** é padrão do laravel ( não é obrigatório, mas é o recomendável) será ele que será responsável pelo envio dos dados para o banco de dados. 
 
@@ -324,6 +321,8 @@ Adicionamos a informação no formulário, e clicamos para salvar os dados. Apó
 Imagem acima mostrando como ficou o banco de dados. 
 
 Neste momento, no campo 'Estoque_Atual', estamos apenas replicando a informação de 'Quantidade'. Este campo será retirada da Tabela "Movimentacaos".
+
+
 
 ```ruby
    puts "Hello World"
