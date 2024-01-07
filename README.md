@@ -324,7 +324,18 @@ Imagem acima mostrando como ficou o banco de dados.
 
 Neste momento, no campo 'Estoque_Atual', estamos apenas replicando a informação de 'Quantidade'. Este campo será retirada da Tabela "Movimentacaos".
 
+```ruby
+   puts "Hello World"
+```
 
+
+teste com o python 
+
+
+~~~python
+    s = "Sintaxe do Pythong"
+    print s
+~~~
 
 	
 	
