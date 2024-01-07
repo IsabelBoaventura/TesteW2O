@@ -39,11 +39,19 @@ class MovimentacaoController extends Controller
     public function store(Request $request){
         $mov = new Movimentacao  ;
 
-        $mov->nome = strtoupper($request->nome);
-        $mov->descricao = ucwords( $request->descricao);
+        $mov->produto_id  = $request->produto;
+        $mov->data_movimento = date('Y-m-d');
+        $mov->tipo_movimento = $request->mov;
+        $mov->quantidade = $request->qtd;
+       // $mov->data_vencimento =  $request->data_venc;
+       $mov->estoque_atual = $request->qtd;
+
+
+
        
 
-        $mov->save();
+    
+            $mov->save();
 
        //redirecionar o usuario para a pagina principal
        return redirect('/')->with('msg', 'Movimentação  criada com sucesso!');

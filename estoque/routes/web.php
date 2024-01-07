@@ -35,8 +35,8 @@ Route::get('/produtos/criacao',  [ProdutoController::class, 'create'] );
 
 
 
-
 //
  Route::get('/mov',  [MovimentacaoController::class, 'index']);
 // 
 Route::get('/mov/criar',  [MovimentacaoController::class, 'create'] );
+Route::post('mov', [MovimentacaoController::class, 'store']);

@@ -38,10 +38,10 @@
                 </select>
             </div>
 
-            {{-- Data do Movimento  --}}
+            {{-- Data do Vencimento   --}}
             <div class="form-group">
-                <label for="data_mov">Data de Vencimento:</label>
-                <input type="date" name="data_mov" id="data_mov" class="form-control" >
+                <label for="data_venc">Data de Vencimento:</label>
+                <input type="date" name="data_venc" id="data_venc" class="form-control" >
             </div>
 
 

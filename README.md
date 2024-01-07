@@ -280,11 +280,55 @@ E redirecionamos para a página principal, ou a página que desejarmos.
 	
     public function store ( Request $request){
 		$event = new Event;
-		$event->titulo = $request->titulo
-		$event->descricao = $request->descricao
+		
+		$event->titulo = $request->titulo;
+		$event->descricao = $request->descricao;
+		
 		$event->save();
+		
 		return redirect('/');
 	}
+	
+Para enviar as informações do formulário para a action store, o formulaário deve ter uma diretiva de CSRF. 
+
+
+
+<details>
+
+<summary>CSRF</summary>
+
+### O que é CSRF ?
+
+CSRF é um tipo de ataque que explora a confiança de um aplicativo em relação a um usuário autenticado. Em um ataque CSRF, o invasor faz com que o usuário execute uma ação em um aplicativo sem o conhecimento ou consentimento do usuário. Isso é feito enganando o aplicativo para pensar que a solicitação está sendo feita pelo usuário autenticado quando, na verdade, é o invasor que está fazendo a solicitação.
+
+### Saiba mais:
+
+https://www.linkedin.com/pulse/vulnerabilidades-do-csrf-token-laravel-como-evit%C3%A1-las-fabio-andolphi/
+
+https://laravel.com/docs/10.x/csrf
+
+
+
+</details>
+
+
+Após a tag de abertura do formulário adicionamos a diretiva do laravel  do CSRF. 
+
+	```
+		@csrf
+	```
+	
+Adicionamos a informação no formulário, e clicamos para salvar os dados. Após isto as informações enviadas pelo formulário estarão salvas no banco de dados. 
+
+<img src="imgs_doc/dados_salvos_banco.jpg" alt="Dados no banco" />
+
+Imagem acima mostrando como ficou o banco de dados. 
+
+
+
+img
+
+dados_salvos_banco.jpg
     
 	
 	
