@@ -277,7 +277,7 @@ Chamamos o método que salva as informações no banco.
 
 E redirecionamos para a página principal, ou a página que desejarmos.
 
-	
+~~~php	
     public function store ( Request $request){
 		$event = new Event;
 		
@@ -288,6 +288,7 @@ E redirecionamos para a página principal, ou a página que desejarmos.
 		
 		return redirect('/');
 	}
+~~~
 	
 Para enviar as informações do formulário para a action store, o formulaário deve ter uma diretiva de CSRF. 
 
