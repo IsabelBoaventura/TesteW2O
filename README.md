@@ -314,7 +314,7 @@ https://laravel.com/docs/10.x/csrf
 
 Após a tag de abertura do formulário adicionamos a diretiva do laravel  do CSRF. 
 
-	```@csrf```
+```@csrf```
 	
 Adicionamos a informação no formulário, e clicamos para salvar os dados. Após isto as informações enviadas pelo formulário estarão salvas no banco de dados. 
 
