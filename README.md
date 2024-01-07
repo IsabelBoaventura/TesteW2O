@@ -314,9 +314,7 @@ https://laravel.com/docs/10.x/csrf
 
 Após a tag de abertura do formulário adicionamos a diretiva do laravel  do CSRF. 
 
-	```
-		@csrf
-	```
+	```@csrf```
 	
 Adicionamos a informação no formulário, e clicamos para salvar os dados. Após isto as informações enviadas pelo formulário estarão salvas no banco de dados. 
 
@@ -324,30 +322,10 @@ Adicionamos a informação no formulário, e clicamos para salvar os dados. Apó
 
 Imagem acima mostrando como ficou o banco de dados. 
 
+Neste momento, no campo 'Estoque_Atual', estamos apenas replicando a informação de 'Quantidade'. Este campo será retirada da Tabela "Movimentacaos".
 
 
-img
 
-dados_salvos_banco.jpg
-    
-	
-	
-	
-	teste phytion 
-	
-	
-	
-	~~~python
-    s = "Sintaxe do Pythong"
-    print s
-    ~~~
-
-
-	
-	```python
-    s = "Sintaxe do Pythong"
-    print s
-    ```
 	
 	
 	
