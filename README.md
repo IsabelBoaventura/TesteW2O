@@ -423,7 +423,64 @@ Para incrementar um campo em uma tabela já existente usaremos o **php artisan m
 * events: nome da tabela que receberá a nova coluna;
 * table: comando que informa que é uma tabela ;
 
-Dentro da nova migration
+Dentro da nova migration, na função **UP** iremos informar o que deve ser salvo. 
+
+~~~php
+	$table->string('imagem');
+~~~
+
+Dentro da função **Down** iremos informar o que deve ser realizado para eliminar esta coluna. 
+
+~~~php
+	$table->dropColumn('imagem');
+~~~
+
+Configurado como a migrate deve ser tratada. Agora executar a migrate.
+
+<code>php artisan migrate</code>
+
+### Mostrando a imagem
+
+Agora que o campo foi criado no banco de dados(migrate e controller), a informação já pode ser adicionado pelo usuário (blade e controller) esta na hora de apresentar a imagem para o usuário. 
+
+A apresentação da imagem será realizada na na view (welcome.blade.php)
+
+~~~html
+	<img src="img/events/{{ $event->image}}" >
+~~~
+
+Ciclo da imagem completado ( para este ciclo).
+
+### Resgatando UM registro do banco
+
+No laravel usaremos o **Eloquent** para resgatar apenas um registro do banco, com o método **findOrFail**
+
+Criamos a rota que irá mostrar apenas os detalhes de um único registro no banco. 
+
+Esta rota será chamado na página principal de rotas ( web.php);
+
+
+~~~php
+	Route::get('events/{id}' ,  [EventController::class, 'show']);
+~~~ 
+
+O método **show** é o padrão para o laravel saber que deve trazer as informações de apenas um registro. 
+
+Agora na página que irá mostrar os detalhes do evento ( welcome.blade.php) iremos mudar o link para redirecionar para a página de trabalho. 
+
+~~~html
+	<a href="events/{{ $event->id }}" >
+~~~
+
+Adicionado no controller a action  **show** 
+ 
+
+
+
+
+
+
+
 
 
 
