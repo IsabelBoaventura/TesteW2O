@@ -323,19 +323,114 @@ Imagem acima mostrando como ficou o banco de dados.
 Neste momento, no campo 'Estoque_Atual', estamos apenas replicando a informação de 'Quantidade'. Este campo será retirada da Tabela "Movimentacaos".
 
 
+### Flash Messages
 
-```ruby
-   puts "Hello World"
-```
-
-
-teste com o python 
+Mensagens adicionadas para o Usuário, via **session**, estas mensagens serão adicionadas no Controller através do método **with**. O blade irá verificar se há ou não as Flash messages pela diretiva **@session**.
 
 
-~~~python
-    s = "Sintaxe do Pythong"
-    print s
+Portanto dentro do Controller, dentro do Método store, antes de finalizar o redirecionamento,  iremos acrescentar o método **with**. 
+
+O método with contém uma array com chave e conteudo.
+
+~~~php
+	return redirect('/')->with('msg', 'Evento Criado com Sucesso!');
 ~~~
+
+Para o nosso exemplo a chave do Método WITH é **msg**,  e o conteúdo desta chave é **Evento criado com sucesso!**
+
+Desta forma a mensagem foi criada,  mas precisamos receber e mostrar esta mensagem para o usuário.
+  
+Assim teremos de modificar o nosso blade principal ( main.blade.php). 
+
+Antes da apresentação do conteudo da página [@yield('content')], iremos fazer a verificação da existência da flah message,  e se sim, iremos apresentar ela em tela. 
+
+
+~~~html
+	@if(session('msg'))
+        <p class="msg">{{ session('msg') }}</p>
+    @endif
+    @yield('content')
+~~~
+
+Assim se houver alguma flash message o aplicativo mostrará para o usuário e após apresentará o conteudo da tela. 
+
+
+<img src="imgs_doc/flash_message.jpg" alt="Mensagem" />
+
+### Adicionar Mensagens 
+
+Vamos adicionar uma imagem dentro do nosso sistema. 
+
+Primeira parte vamos mudar o 'form' para que ele aceite pegar arquivos. 
+
+~~~html
+	<form action="/" method="POST" enctype="multipart/form-data">
+~~~
+
+Nesta mesma view (create.blade.php) onde mudamos o form, devemos acrescer  um input do tipo "type" para buscar os arquivos. 
+
+~~~html
+	<input type="file" name="img">
+~~~
+
+No controller temos de modificar como a imagem será recebida.
+
+Iremos verificar se o arquivo existe e se este arquivo é valido. 
+
+~~~php
+	if( $request->hasFile('img') && $request->file('img')->isValid() ){
+~~~
+
+Depois da verificação iremos salvar a extensão do arquivo que chegou. 
+
+~~~php
+	$requestImagem = $request->img;
+	$extension = $requestImagem->extension();
+~~~
+
+Iremos renomear o arquivo recebido
+
+~~~php
+	$imagemNome = md5($requestImagem->getClientOriginalName().strotime('now')).'.'.$extension;
+~~~
+
+Este será o nome do arquivo que será salvo no banco de dados, e o nome do novo arquivo (imagem/foto) que salvaremos no nosso aplicativo. 
+
+Salvar a imagem em pastas dentro do aplicativo
+
+~~~php
+	$request->img->move( public_path('img/events'), $imagemNome );
+~~~
+
+
+Salvar a imagem no banco de dados
+
+~~~php
+	$event->imagem =  $imagemNome ;
+~~~
+
+### Adicionar novo campo
+
+Adicionar um novo campo em uma tabela já existente e já contendo informações.
+
+Para incrementar um campo em uma tabela já existente usaremos o **php artisan migration**
+
+<code>php artisan make:migration add_imagem_to_events_table</code>
+
+* add: seria adicionar;
+* imagem: seria o nome do campo a ser adicionado;
+* to: para onde ; 
+* events: nome da tabela que receberá a nova coluna;
+* table: comando que informa que é uma tabela ;
+
+Dentro da nova migration
+
+
+
+
+
+
+
 
 	
 	
