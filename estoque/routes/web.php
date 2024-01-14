@@ -35,8 +35,11 @@ Route::get('/produtos/criacao',  [ProdutoController::class, 'create'] );
 
 
 
-//
- Route::get('/mov',  [MovimentacaoController::class, 'index']);
-// 
+//rota principal da movimentacao
+Route::get('/mov',  [MovimentacaoController::class, 'index']);
+// rota para abrir a tela de  criacao de um novo elenento
 Route::get('/mov/criar',  [MovimentacaoController::class, 'create'] );
+//rota para criar um novo elemento
 Route::post('mov', [MovimentacaoController::class, 'store']);
+//rota para mostrar um unico elemento 
+Route::get('mov/{id}', [MovimentacaoController::class, 'show']);

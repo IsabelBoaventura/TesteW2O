@@ -43,18 +43,13 @@ class MovimentacaoController extends Controller
         $mov->data_movimento = date('Y-m-d');
         $mov->tipo_movimento = $request->mov;
         $mov->quantidade = $request->qtd;
-       // $mov->data_vencimento =  $request->data_venc;
-       $mov->estoque_atual = $request->qtd;
+        // $mov->data_vencimento =  $request->data_venc;
+        $mov->estoque_atual = $request->qtd;
+        
+        $mov->save();
 
-
-
-       
-
-    
-            $mov->save();
-
-       //redirecionar o usuario para a pagina principal
-       return redirect('/')->with('msg', 'Movimentação  criada com sucesso!');
+        //redirecionar o usuario para a pagina principal
+        return redirect('/')->with('msg', 'Movimentação  criada com sucesso!');
 
 
 

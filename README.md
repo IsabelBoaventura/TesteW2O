@@ -472,7 +472,24 @@ Agora na página que irá mostrar os detalhes do evento ( welcome.blade.php) ire
 	<a href="events/{{ $event->id }}" >
 ~~~
 
-Adicionado no controller a action  **show** 
+Adicionado no controller a action  **show** que buscará o dado informado no banco. 
+
+~~~php
+	public function show( $id ){
+		$event = Event::findOrFail($id);
+		return view ('events.show' , ['event' => $event]);
+	}
+~~~
+
+Dentro da action show iremos buscar dentro do model as informações apenas deste id,  e retornaremos para a view show ( eventos/ show.blade.php) ;
+
+Devemos criar a view que irá mostrar os detalhes desta informação. Dentro da pasta principal iremos criar a view **show.blade.php**.
+
+Dentro da blade, iremos apresentar as informações deste ID. 
+
+
+
+
  
 
 
