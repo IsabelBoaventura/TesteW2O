@@ -487,6 +487,74 @@ Devemos criar a view que irá mostrar os detalhes desta informação. Dentro da 
 
 Dentro da blade, iremos apresentar as informações deste ID. 
 
+### Salvando JSON  no banco
+
+JSON será usado para guardar um conjunto de informações no banco de dados. Geralmente são arquivos tipos checkbox.
+
+Será criada uma coluna na tabela do tipo **Json**.
+Cria-se uma nova migration.
+
+	<code>php artisan make:migration add_itens_to_events_table</code>
+	
+Dentro da estrutura da migration, na função 'up' usaremos a criação da coluna do tipo json. 
+
+~~~php
+	$table->json('itens');
+~~~
+
+E dentro da função 'down' iremos identificar qual a tabela que será elimina.
+
+~~~php
+	$table->dropColumn('itens');
+~~~
+
+No banco de dados, a coluna json , ficará salva como "longText'.
+
+Na view, deve ser adicionado o input que terá as informações para serem checadas.
+
+
+~~~html
+	<input type="checkbox" name="itens[]" value="cadeira"> Cadeira
+~~~
+
+Na parte do "name", o nome deste input deve ser com '[]', para o sistema enteder que receberá mais de um dos checks.
+
+No controller desta página receberemos o valor do input de forma normal, assim como receberiamos de qualquer outro input. 
+
+~~~php
+	$event->itens = $request->itens ;
+~~~
+
+O Model precisa saber que estes dados serão recebidos como array e não como string. 
+Assim dentro do Model, criamos a variavel **casts**, tipo protegida,  contendo o tipo "itens" como sendo uma "array".
+
+~~~php
+	protected $casts = [ 'itens' => 'array' ] ;
+~~~
+
+Ao criar um novo evento no banco,  e neste evento sendo escolhidos alguns itens que terão. 
+Quando submete ao banco de dados, no banco de dados, teremos uma array salva no campo itens, e não strings.
+
+Agora devemos apresentar as informações salvas no banco. Para isto usaremos a view show.blade.php. 
+Nesta view,  iremos adicionar o o UL deste item  e chamamos os itens com o foreach para ser apresentado cada um deles. 
+
+
+~~~html
+	<ul id='itens'>
+		@foreach($event->itens as $item)
+			<li>{{$item}}</li>
+		@endforeach
+~~~
+
+Desta forma a view irá apresentar todos os itens selecionados que constam no banco de dados. 
+
+
+
+
+
+
+
+
 
 
 
