@@ -57,7 +57,7 @@
                 @if( count( $movimentacao )==0  && $search )
                     <p>Não foi possível encontrar nenhuma movimentação  com  {{ $search }}! <a href="/">Ver todos </a> </p>
                 @elseif(  count($movimentacao  )==0 )
-                    <p>Não há categorias cadastradas. </p>
+                    <p>Não há Movimentações para serem mostradas. </p>
                 @endif
             </div>
         </div> 
@@ -78,10 +78,7 @@
                     <tr>
                         <th scope="row">{{ $mov->id }}</th>
                         <td> {{  $mov->produto_id }}</td>
-                        <td>{{ $mov->data_movimento  }}</td>
-                       
-                       
-
+                        <td>{{  date('d/m/Y', strtotime( $mov->data_movimento ) ) }}</td>
 
                         @if (  $mov->tipo_movimento  == 'E' )
                             <td> Entrada </td>

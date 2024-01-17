@@ -549,6 +549,71 @@ Nesta view,  iremos adicionar o o UL deste item  e chamamos os itens com o forea
 Desta forma a view irá apresentar todos os itens selecionados que constam no banco de dados. 
 
 
+### Salvando datas no banco de dados
+
+As datas estarao em um input do type **date**, na branch que cria novas informações (create.blade.php).
+
+No banco de dados, será criado um campo do tipo  **dateTime**. 
+
+Para a criação do campo na tabela usaremos a migration:
+
+<code>php artisan  make:migration add_dataCriacao_to_events_table</code>
+
+Na criação da migration,  teremos a novidade da criação de um campo com dois nomes, no comando de criação o nome esta representado pela primeira palavra toda em minusculo seguido da segunda palavra apenas com a primeira letra em Maiusculo. Sem espaço separando ambas. 
+
+
+Na função **UP** criaremos o campo do tipo dateTime:
+
+~~~php
+	$table->dateTime('data_criacao');
+~~~
+
+E na função **Down** a forma de eliminar esta coluna:
+
+~~~php
+	$table->dropColumn('data_criacao');
+~~~
+
+Entretanto nas versões mais recentes ( ou na minha ) criar uma tabela desta forma apenas o laravel não aceita. 
+
+Para poder passar pelo laravel e criar esta tabela usamos duas formas:
+
+* Fazendo com que a tabela aceite valor null( na função up):
+
+~~~php
+	$table->dateTime('data_criacao')->nullable();
+~~~
+
+* Outra forma seria a de setar uma data/hora inicial  para a coluna da tabela:
+
+~~~php									    $table->dateTime('data_criacao')->default('0000-00-00 00:00:00');
+~~~ 
+
+De ambas as formas a coluna foi criada no banco de dados. 
+
+No controller iremos informar que o campo da tabela irá receber o valor do campo do input. 
+
+Na apresentação da data ( show.blade.php ) teremos de tratar como a data do banco, será apresentada na tela para o usuário. 
+
+No campo onde será mostrada a data, usaremos funções nativas do PHP (date e strtotime).
+
+~~~php
+	date('d/m/Y' , strtotime($event->data_criacao);
+~~~ 
+
+Finalizando o ciclo de datas. 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
