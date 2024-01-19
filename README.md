@@ -603,7 +603,47 @@ No campo onde será mostrada a data, usaremos funções nativas do PHP (date e s
 
 Finalizando o ciclo de datas. 
 
+### Buscador - search 
 
+o Eloquent do laravel nos permite fazer as buscas.
+
+Na blade de apresentação, teremos a parte de busca na página. Nesta view teremos um form apenas para a busca. Este form terá a action que encaminhará para a apresentação e para o método "Get". 
+
+No controller deverá ter a variável de busca. 
+
+Caso a busca tenha algum valor, será apresetado a resposta deste valor, caso Contrário, será apresentada todas as informações. 
+
+Para a apresentação, de apenas as informações que tenham o que buscava, faz-se necessário o uso do Eloquent do **WHERE**. 
+
+~~~php
+	$buscador = request('search');
+    if( $buscador ){
+        $vagas = Vaga::WHERE([
+            ['titulo', 'like', '%'.$buscador.'%']
+        ])->get();
+	}else{
+        $vagas = Vaga::all();
+    }
+~~~
+
+Desta forma o controller sabe o que deve buscar. 
+
+A view também receberá a "busca" para poder ser tratada. 
+
+Para o envio da busca na view:
+
+~~~php
+ return view('welcome', ['vagas' => $vagas , 'search' => $buscador ]);
+~~~
+
+Na view (welcome.blade.php ) iremos tratar a variável de busca. E a apresentação da busca,  e seu resultado. 
+
+Finalizando a busca.
+
+
+
+
+erá encaminhado para 
 
 
 
